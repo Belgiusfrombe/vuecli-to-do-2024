@@ -12,7 +12,7 @@ const tasksStore = useTasksStore();
       <li><a href="#/active">Active</a></li>
       <li><a href="#/completed">Completed</a></li>
     </ul>
-    <button class="clear-completed">Clear completed</button>
+    <button class="clear-completed" @click="deleteAll()">Clear completed</button>
   </footer>
 </template>
 <style scoped></style>
