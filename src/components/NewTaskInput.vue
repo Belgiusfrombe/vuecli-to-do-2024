@@ -1,5 +1,26 @@
+<script setup>
+import { reactive } from "vue";
+import { useTasksStore } from "@/stores/tasks";
+const tasksStore = useTasksStore();
+
+const newTask = reactive({ id: null, content: null, completed: false });
+
+const add = () => {
+  newTask.id = Date.now();
+  tasksStore.addTask({ ...newTask });
+  newTask.id = null;
+  newTask.content = null;
+};
+</script>
+
 <template>
-  <input class="new-todo" placeholder="What needs to be done?" autofocus />
+  <input
+    class="new-todo"
+    placeholder="What needs to be done?"
+    autofocus
+    v-model="newTask.content"
+    @change="add()"
+  />
 </template>
 
 <style scoped>
