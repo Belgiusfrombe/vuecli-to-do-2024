@@ -4,7 +4,6 @@ import TasksListItem from "@/components/TasksListItem.vue";
 const props = defineProps({
   tasks: Array,
 });
-
 </script>
 <template>
   <ul class="todo-list">

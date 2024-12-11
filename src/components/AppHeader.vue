@@ -3,7 +3,7 @@ import NewTaskInput from "@/components/NewTaskInput.vue";
 </script>
 <template>
   <header class="header">
-    <h1>To Do list !</h1>
+    <h1>todos</h1>
     <NewTaskInput />
   </header>
 </template>

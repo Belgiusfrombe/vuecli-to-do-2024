@@ -14,7 +14,6 @@ export const useTasksStore = defineStore("tasks", () => {
     tasks.unshift(task);
   };
 
-  // MÉTHODES DELETE ONE BY ID
   const deleteOneById = (id) => {
     tasks.splice(
       tasks.findIndex((item) => item.id == id),
@@ -22,10 +21,15 @@ export const useTasksStore = defineStore("tasks", () => {
     );
   };
 
-  // WATCH
+  const checkEditingById = (id) => {
+    tasks.forEach((task) => {
+      task.isEditing = task.id === id;
+    });
+  };
+
   watch(tasks, (newValue, oldValue) => {
     localStorage.setItem("tasks", JSON.stringify(newValue));
   });
 
-  return { tasks, itemsLeftCount, addTask, deleteOneById };
+  return { tasks, itemsLeftCount, addTask, deleteOneById, checkEditingById };
 });
